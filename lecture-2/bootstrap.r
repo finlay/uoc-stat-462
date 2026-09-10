@@ -80,8 +80,9 @@ ggplot(boot, aes(x=correlation)) +
   xlim(0.2,1) +
   ylim(0,1) +
   scale_y_continuous(breaks = NULL) +
-  labs(title="Distribution of Bootstrapped Correlations",
-       x="Correlation", y="") +
+  labs(title=sprintf("Correlation = %0.4f (95%% c.i. %0.3f - %0.3f)",
+                     mean(boot$correlation), q[1], q[2]),
+       x="Correlation", y="" ) +
   geom_vline(xintercept=mean(boot$correlation),
              color="black", linetype="solid", linewidth=0.5) +
   geom_vline(xintercept=q,
