@@ -13,7 +13,7 @@ manual_correlation <-
 quick_correlation <- cor(x, y)
 
 
-ggplot(d, aes(x=x, y=y)) +
+ggplot(scores, aes(x=x, y=y)) +
   geom_point() +
   xlim(70,100) +
   labs(x="Mark", y="GPA")
@@ -22,7 +22,7 @@ ggplot(d, aes(x=x, y=y)) +
 set.seed(462)
 
 boot <-
-  rbindlist(lapply(1:1000, function(i) {
+  rbindlist(lapply(1:1e6, function(i) {
     boot_sample <-
       scores[sample(1:nrow(scores),
                     size=nrow(scores),
