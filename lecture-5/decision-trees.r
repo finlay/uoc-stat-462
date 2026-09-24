@@ -22,7 +22,8 @@ ggplot(Carseats, aes(x = Price, y = Age, color = Sales)) +
 
 set.seed(1)
 
-train_indices <- sample(1:nrow(Carseats), nrow(Carseats) * 0.8)
+train_indices <-
+  sample(1:nrow(Carseats), nrow(Carseats) * 0.8)
 train <- Carseats[train_indices, ]
 test <- Carseats[-train_indices, ]
 
@@ -169,7 +170,7 @@ ggplot(mtry.test, aes(x=mtry, y=err)) +
   geom_line() +
   geom_point() +
   scale_x_continuous(breaks=seq(1,10)) +
-  ylim(0.10,0.25) +
+  ylim(0.15,0.35) +
   labs(
     x     = "mtry",
     y     = "Error"
